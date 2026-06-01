@@ -37,6 +37,7 @@ export default function CinematicReveal() {
           style={{ backgroundImage: "url('/fondo-cinmeatic-reveal.png')" }}
           id="cinematic-reveal"
         >
+          <div className="absolute inset-0 bg-brand-charcoal/60" />
           <div className="w-full max-w-4xl flex flex-col items-center text-center gap-8">
             <motion.div
               initial={{ scale: 0.92, opacity: 0 }}

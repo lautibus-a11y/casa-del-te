@@ -68,7 +68,7 @@ export default function About() {
 
           {/* Right Column: Organic Stacked Imagery */}
           <div className="lg:col-span-5 relative mt-6 lg:mt-0">
-            <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-xl" id="about-image-primary-holder">
+            <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-xl border-2 border-brand-olive/70" id="about-image-primary-holder">
               <img
                 src={ASSETS.about.primary}
                 alt="Espacio al aire libre de Komorebi entre vegetación y bambú"

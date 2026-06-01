@@ -41,8 +41,8 @@ export default function Navbar() {
       id="main-navbar"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "py-2 sm:py-2.5 bg-brand-cream/70 backdrop-blur-xl border-b border-brand-wood/20 shadow-lg"
-          : "py-4 sm:py-5 bg-brand-charcoal/20 backdrop-blur-md border-b border-white/10 shadow-sm"
+          ? "py-1.5 sm:py-2 bg-brand-cream/70 backdrop-blur-xl border-b border-brand-wood/20 shadow-lg"
+          : "py-2.5 sm:py-3 bg-brand-charcoal/20 backdrop-blur-md border-b border-white/10 shadow-sm"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -70,7 +70,11 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleScrollTo(e, link.href)}
-                  className="font-sans text-sm tracking-wide text-brand-charcoal/80 hover:text-brand-olive transition-colors duration-200 relative py-1 group"
+                  className={`font-sans text-sm tracking-wide transition-colors duration-200 relative py-1 group ${
+                    scrolled
+                      ? "text-brand-charcoal/80 hover:text-brand-olive"
+                      : "text-brand-cream/90 hover:text-brand-cream"
+                  }`}
                   id={`nav-link-${link.name.toLowerCase()}`}
                 >
                   {link.name}
@@ -98,7 +102,11 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setClicked(!clicked)}
-              className="p-1.5 rounded-lg text-brand-charcoal hover:bg-brand-sand transition-colors duration-200"
+              className={`p-1.5 rounded-lg transition-colors duration-200 ${
+                scrolled
+                  ? "text-brand-charcoal hover:bg-brand-sand"
+                  : "text-brand-cream/90 hover:bg-brand-cream/10"
+              }`}
               aria-label={clicked ? "Cerrar menú" : "Abrir menú"}
               id="menu-toggle-btn"
             >

@@ -46,7 +46,7 @@ export default function Hero() {
           </video>
         </motion.div>
         {/* Cinematic gradient overlay for premium legibility */}
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-charcoal/40 via-brand-charcoal/50 to-brand-cream" />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-charcoal/70 via-brand-charcoal/60 to-brand-charcoal/80" />
       </div>
 
       {/* Content Container */}

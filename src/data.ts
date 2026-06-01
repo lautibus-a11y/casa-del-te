@@ -42,12 +42,12 @@ export const IMAGES = {
   
   // Esthetic inspirations
   pathway: "https://images.openai.com/static-rsc-4/Qq316eMi1KLZ1jkaqgRF9D0sxe6t-jsLFPxyA0lP2QkqQzNtmAaoCMjLmUpnPLkZ6xypM_pOJ0oGn90DCp-x_CANxjbbHAzsPqUYD-wujrPs04aarAlF9NcoagkKy4f6ERglA_WqnIrLkn_tfLMeGe2XcMw-0i_oqubNqVudl0Bso_i-LRUtx41XIaflw25n?purpose=fullsize",
-  bambooSeat: "https://images.openai.com/static-rsc-4/jDXXrbyUEvX_e5yjrKRh5NpRRNq58GhCkPeQz_b8GbPApAG5oHibJWxDy4SspBiKTssvNoRsfVq7c-GPdBNNzSpKv0p9V7I6l5jOvGKWCloAanxNniBQwSc28XTp8dqcifvj6t2fjjjw2JgieYH-V_AGpMnwi-pyGzDmtbIOur7CSxJkbH30-wEIxkj-IbL-?purpose=fullsize",
-  ceramicCup: "https://images.openai.com/static-rsc-4/uzFX95zyq64CYFKFIIEBxGdGbz1qb7E7LX7jHlk7KUJzQ774uATndGV9BdsfPQNE2pSPx93Y4OEeaN022TGDwVM9BOe8PzL33H6L9j0k82hhNWEtO2rz_Fi-xV88g2ifVJYFSN32o4JRU8fMjgCE1vFJy5GGJEVId4LKzirxdgvscq1lOiwq_s-wP4-84vlU?purpose=fullsize",
+  bambooSeat: "https://images.unsplash.com/photo-1690903588288-952cad1979ee?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb",
+  ceramicCup: "https://images.unsplash.com/photo-1619367302315-0ed8a8879656?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb",
   traySetting: "https://images.openai.com/static-rsc-4/e8qMQAwwAAO4lbQmO9jWIMZT9mdW5xzBTqqgYI8pmdq7GkYdnMeqhVcGXbvVGPA_xrsJJyXunnD68EQy7FVs1nT0WxoPJb8GZradALh1Q78wt__IE7RBm3Jg7v-_pxEJCA4jXcuAXpylh0KI7dAVmVBbNU0RwotuqhDcZHQkrhudjaqyomAlDwsW1hoDVDad?purpose=fullsize",
   glassTeapot: "https://images.openai.com/static-rsc-4/89Ws_y5uA0j82BgTEYEgGTXUU4ewUzt1Sl2_8zNACajd7SgwPGybMlnWi70hjqWjRFCBuVLeJkWID-CJ0rHTlsZht1-orX-QRUAuygHbyOGyEgXnM9Pp_DGhKiGbBAbYD5VhOs2577DOvUsn5kbx7iITLbFxMzQKc8hn5EU_B6N6F3aeyb65fu3bGK5icVdY?purpose=fullsize",
   tatamiCorner: "https://images.openai.com/static-rsc-4/k-1JgtPu9cLbHrut-kg5vWf8sphg5QXnZRuEkMOMdosXdvCRQxo2chGEPmT5Uohiekr6R5bUwWrQNcFcdSe7bp3MoQQ5nwtNO4QuRqzKMWRO_dXnliM9pNXJKng-6e-0CqOyqkW9M5VdoFdT5dx-q-3skcuN-RwllMH2VZOTR63baE-GnEEuZXMxM7C8OWij?purpose=fullsize",
-  matchaSet: "https://images.openai.com/static-rsc-4/QWXXtH2FkdenIILYChgytpJz2L3O0AVzmlgOdeWl7E6RhrLS0thjQvGiYQ_pVmL1TM5z-lpNksTybUuLkN-HAifP4jjWdrukPR8GYo0wuCbedVhUiQtLX5At_layDYFUm1qidJmnDLXJvpaJeSeotjxTysXcD_VrfmKWTYm5wDYDFc7VrEXFTXrSJ7TtX484?purpose=fullsize"
+  matchaSet: "https://images.unsplash.com/photo-1753009712810-3f72c3f72548?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb"
 };
 
 export const MENU_ITEMS: MenuItem[] = [
