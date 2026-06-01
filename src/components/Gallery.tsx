@@ -72,16 +72,12 @@ export default function Gallery() {
             return (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{
-                duration: 0.6,
-                delay: (index % 4) * 0.08,
-                ease: "easeOut",
-              }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
               onClick={() => setLightboxIndex(index)}
-              className={`break-inside-avoid relative rounded-2xl overflow-hidden group cursor-pointer shadow-sm border-brand-olive hover:shadow-xl hover:brightness-110 transition-all duration-500 ${border}`}
+              className={`break-inside-avoid relative rounded-2xl overflow-hidden group cursor-pointer shadow-sm border-brand-olive hover:shadow-xl transition-shadow duration-500 ${border}`}
               id={`gallery-item-wrap-${item.id}`}
             >
               <img
@@ -89,7 +85,7 @@ export default function Gallery() {
                 alt={item.alt}
                 referrerPolicy="no-referrer"
                 loading="lazy"
-                className="w-full object-cover rounded-2xl transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-95 group-hover:brightness-100"
+                className="w-full object-cover rounded-2xl transition-transform duration-700 ease-out group-hover:scale-105"
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/80 via-brand-charcoal/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
