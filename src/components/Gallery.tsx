@@ -51,19 +51,37 @@ export default function Gallery() {
           className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6"
           id="gallery-masonry"
         >
-          {GALLERY_ITEMS.map((item, index) => (
+          {GALLERY_ITEMS.map((item, index) => {
+            const borders = [
+              "border-t-4 border-l-4",
+              "border-r-4 border-t-4",
+              "border-b-4 border-r-4",
+              "border-l-4 border-b-4",
+              "border-t-4 border-r-4 border-b-4",
+              "border-r-4 border-b-4 border-l-4",
+              "border-b-4 border-l-4 border-t-4",
+              "border-l-4 border-t-4 border-r-4",
+              "border-t-4 border-b-4",
+              "border-l-4 border-r-4",
+              "border-t-4",
+              "border-b-4",
+              "border-l-4",
+              "border-r-4",
+            ];
+            const border = borders[index % borders.length];
+            return (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, y: 56, scale: 0.96 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{
-                duration: 0.75,
-                delay: (index % 3) * 0.1,
-                ease: [0.22, 1, 0.36, 1],
+                duration: 0.6,
+                delay: (index % 4) * 0.08,
+                ease: "easeOut",
               }}
               onClick={() => setLightboxIndex(index)}
-              className="break-inside-avoid relative rounded-2xl overflow-hidden group cursor-pointer shadow-sm border border-brand-wood/20 hover:shadow-xl hover:border-brand-olive/50 transition-all duration-500"
+              className={`break-inside-avoid relative rounded-2xl overflow-hidden group cursor-pointer shadow-sm border-brand-olive hover:shadow-xl hover:brightness-110 transition-all duration-500 ${border}`}
               id={`gallery-item-wrap-${item.id}`}
             >
               <img
@@ -86,7 +104,8 @@ export default function Gallery() {
                 </div>
               </div>
             </motion.div>
-          ))}
+          );
+        })}
         </div>
 
         <AnimatePresence>

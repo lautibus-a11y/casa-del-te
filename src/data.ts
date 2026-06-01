@@ -15,6 +15,11 @@ export const ASSETS = {
     teNegro: "/menu/tes/te-negro.jpg",
     teVerde: "/menu/tes/te-verde.jpeg",
     matcha: "/menu/tes/matcha.webp",
+    assam: "/menu/tes/te de assam.jpg",
+    bergamota: "/menu/tes/te de bergamota.jpg",
+    sencha: "/menu/tes/sencha.jpeg",
+    jazmin: "/menu/tes/te de jazmin.jpeg",
+    matchaHelado: "/menu/tes/matchahelado.jpeg",
     scone: "/menu/pasteleria/scone-lavanda.webp",
     tarta: "/menu/pasteleria/tarta-manzana.jpeg",
     toast: "/menu/brunch/toast-nordico.jpeg",
@@ -59,7 +64,7 @@ export const MENU_ITEMS: MenuItem[] = [
     category: "tes",
     variety: "Té Negro",
     tags: ["Orgánico", "Cuerpo Entero"],
-    image: ASSETS.menu.teNegro,
+    image: ASSETS.menu.assam,
   },
   {
     id: "tn2",
@@ -69,7 +74,7 @@ export const MENU_ITEMS: MenuItem[] = [
     category: "tes",
     variety: "Té Negro",
     tags: ["Cítrico", "Aromático"],
-    image: ASSETS.menu.teNegro,
+    image: ASSETS.menu.bergamota,
   },
   {
     id: "tv1",
@@ -79,7 +84,7 @@ export const MENU_ITEMS: MenuItem[] = [
     category: "tes",
     variety: "Té Verde",
     tags: ["Umami", "Tradicional"],
-    image: ASSETS.menu.teVerde,
+    image: ASSETS.menu.sencha,
   },
   {
     id: "tv2",
@@ -89,7 +94,7 @@ export const MENU_ITEMS: MenuItem[] = [
     category: "tes",
     variety: "Té Verde",
     tags: ["Floral", "Delicado"],
-    image: ASSETS.menu.teVerde,
+    image: ASSETS.menu.jazmin,
   },
   {
     id: "m1",
@@ -109,7 +114,7 @@ export const MENU_ITEMS: MenuItem[] = [
     category: "tes",
     variety: "Matcha",
     tags: ["Fresco", "Leche de Almendras disp."],
-    image: ASSETS.menu.matcha,
+    image: ASSETS.menu.matchaHelado,
   },
   {
     id: "p1",
