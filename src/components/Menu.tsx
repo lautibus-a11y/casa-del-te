@@ -48,7 +48,7 @@ export default function Menu() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="text-xs uppercase tracking-[0.25em] text-brand-olive font-semibold block mb-2">
-            Nuestra Carta
+            Nuestro Menú
           </span>
           <h2 className="font-serif text-3xl sm:text-4.5xl text-brand-charcoal font-light leading-none">
             La pureza de los ingredientes

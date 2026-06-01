@@ -37,7 +37,7 @@ export default function Gallery() {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="text-xs uppercase tracking-[0.25em] text-brand-olive font-semibold block mb-2">
-            Álbum Atmosférico
+            Galería de nuestro espacio
           </span>
           <h2 className="font-serif text-3xl sm:text-4.5xl text-brand-charcoal font-light leading-none">
             La quietud capturada en instantes

@@ -31,7 +31,7 @@ export default function Events() {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-xs uppercase tracking-[0.25em] text-brand-olive font-semibold block mb-2">
-            Rituales y Cultura
+            Eventos
           </span>
           <h2 className="font-serif text-3xl sm:text-4.5xl text-brand-charcoal font-light leading-none">
             Experiencias en el jardín

@@ -38,7 +38,7 @@ export default function About() {
           {/* Left Column: Story text */}
           <div className="lg:col-span-7 space-y-6">
             <span className="text-xs uppercase tracking-[0.25em] text-brand-olive font-semibold block">
-              Nuestra Esencia
+              Nosotros
             </span>
             
             <h2 className="font-serif text-3xl sm:text-4.5xl text-brand-charcoal font-light leading-tight">
