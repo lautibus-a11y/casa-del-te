@@ -109,15 +109,17 @@ export default function About() {
                 <h4 className="font-serif text-lg font-semibold text-brand-charcoal mb-2">
                   {card.title}
                 </h4>
-                <motion.p
-                  initial={{ opacity: 0, y: 8 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-60px" }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="font-sans text-xs text-brand-charcoal/70 leading-relaxed"
+                <motion.div
+                  initial={{ maxHeight: 0, opacity: 0 }}
+                  whileInView={{ maxHeight: 200, opacity: 1 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+                  className="overflow-hidden"
                 >
-                  {card.description}
-                </motion.p>
+                  <p className="font-sans text-xs text-brand-charcoal/70 leading-relaxed">
+                    {card.description}
+                  </p>
+                </motion.div>
               </div>
             ))}
           </div>
