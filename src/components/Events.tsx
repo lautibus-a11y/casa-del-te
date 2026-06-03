@@ -1,150 +1,231 @@
+import type React from "react";
+import { useState, useRef, useCallback } from "react";
 import { motion } from "motion/react";
-import { Calendar, Clock, Ticket, Users, Music, Flower2, GlassWater } from "lucide-react";
+import { Music, Flower2, GlassWater, Calendar, Clock, ChevronDown } from "lucide-react";
 import { EVENTS } from "../data";
 
+const experienceData = [
+  {
+    icon: Music,
+    title: "Música Acústica",
+    description: "Tardes doradas armonizadas con arpa celta, flautas Shakuhachi tradicionales o guitarras acústicas ambientales.",
+    event: EVENTS[1],
+  },
+  {
+    icon: Flower2,
+    title: "Degustaciones",
+    description: "Viajes guiados por teteras antiguas, analizando la densidad de las hojas y perfiles de sabor de diversas altitudes.",
+    event: EVENTS[2],
+  },
+  {
+    icon: GlassWater,
+    title: "Eventos Privados",
+    description: "Reserve nuestro jardín completo para celebraciones íntimas, banquetes de lino, bodas botánicas o talleres privados.",
+    event: EVENTS[0],
+  },
+];
+
+function WordReveal({ text }: { text: string }) {
+  return (
+    <span className="inline-flex flex-wrap gap-x-[0.25em]">
+      {text.split(" ").map((word, i) => (
+        <span key={i} className="inline-block overflow-hidden">
+          <motion.span
+            initial={{ y: "100%" }}
+            whileInView={{ y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: i * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
+            className="inline-block"
+          >
+            {word}
+          </motion.span>
+        </span>
+      ))}
+    </span>
+  );
+}
+
+function useActiveOnViewport(threshold = 0.5) {
+  const [activeIndex, setActiveIndex] = useState(-1);
+  const observers = useRef<IntersectionObserver[]>([]);
+
+  const observe = useCallback(
+    (index: number): React.RefCallback<HTMLElement> =>
+      (el) => {
+        if (!el) return;
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) setActiveIndex(index);
+          },
+          { threshold }
+        );
+        observer.observe(el);
+        observers.current.push(observer);
+      },
+    [threshold]
+  );
+
+  return { activeIndex, observe };
+}
+
+const lineVariants = {
+  collapsed: { scaleX: 0, opacity: 0 },
+  expanded: { scaleX: 1, opacity: 1 },
+};
+
+const contentVariants = {
+  collapsed: { opacity: 0, y: 12, filter: "blur(4px)" },
+  expanded: { opacity: 1, y: 0, filter: "blur(0px)" },
+};
+
 export default function Events() {
-  const experiences = [
-    {
-      icon: <Music className="w-5 h-5" />,
-      title: "Música Acústica",
-      desc: "Tardes doradas armonizadas con arpa celta, flautas Shakuhachi tradicionales o guitarras acústicas ambientales."
-    },
-    {
-      icon: <Flower2 className="w-5 h-5" />,
-      title: "Degustaciones",
-      desc: "Viajes guiados por teteras antiguas, analizando la densidad de las hojas y perfiles de sabor de diversas altitudes."
-    },
-    {
-      icon: <GlassWater className="w-5 h-5" />,
-      title: "Eventos Privados",
-      desc: "Reserve nuestro jardín completo para celebraciones íntimas, banquetes de lino, bodas botánicas o talleres privados."
-    }
-  ];
+  const { activeIndex, observe } = useActiveOnViewport(0.3);
 
   return (
-    <section 
-      id="eventos" 
-      className="py-24 bg-brand-sand/20 relative overflow-hidden bg-grain border-t border-brand-wood/10"
+    <section
+      id="eventos"
+      className="py-24 lg:py-32 bg-brand-sand/20 relative overflow-hidden bg-grain"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-xs uppercase tracking-[0.25em] text-brand-olive font-semibold block mb-2">
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-brand-olive/5 rounded-full filter blur-3xl pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center max-w-2xl mx-auto mb-20 lg:mb-28">
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-xs uppercase tracking-[0.25em] text-brand-olive font-semibold block mb-3"
+          >
             Eventos
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4.5xl text-brand-charcoal font-light leading-none">
+          </motion.span>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-charcoal font-light leading-tight">
             Experiencias en el jardín
           </h2>
-          <p className="mt-4 font-sans text-brand-charcoal/60 text-sm max-w-xl mx-auto font-light leading-relaxed">
-            Sesiones exclusivas diseñadas con cupos estrictamente limitados para preservar la quietud, el silencio de la conversación y el confort sensorial.
-          </p>
         </div>
 
-        {/* Experience pillars preview */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          {experiences.map((exp, idx) => (
-            <div 
-              key={exp.title}
-              className="p-6 rounded-2xl bg-brand-cream border border-brand-wood/20 shadow-sm flex items-start gap-4"
-              id={`experience-cell-${idx}`}
-            >
-              <div className="p-2.5 rounded-xl bg-brand-sand/60 text-brand-olive shrink-0">
-                {exp.icon}
-              </div>
-              <div>
-                <h4 className="font-serif text-sm font-semibold text-brand-charcoal">{exp.title}</h4>
-                <p className="font-sans text-xs text-brand-charcoal/60 mt-1 leading-relaxed">{exp.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        <div className="max-w-3xl mx-auto space-y-16 lg:space-y-20">
+          {experienceData.map((exp, index) => {
+            const isActive = activeIndex === index;
+            const Icon = exp.icon;
+            const event = exp.event;
 
-        {/* Calendar visual layout */}
-        <div className="space-y-6">
-          <div className="flex items-center justify-between border-b border-brand-wood/30 pb-3">
-            <h3 className="font-serif text-xl font-light text-brand-charcoal">
-              Próximas Sesiones Programadas
-            </h3>
-            <span className="text-xs font-sans text-brand-olive font-medium">Cupos limitados</span>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6">
-            {EVENTS.map((evt, idx) => (
-              <motion.div
-                key={evt.id}
-                initial={{ opacity: 0, x: -15 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="flex flex-col lg:flex-row items-stretch bg-brand-cream border border-brand-wood/20 rounded-2xl overflow-hidden hover:border-brand-olive/40 hover:shadow-lg transition-all duration-300"
-                id={`event-card-${evt.id}`}
+            return (
+              <div
+                key={exp.title}
+                ref={observe(index)}
+                className="relative"
               >
-                {/* Event Thumbnail */}
-                <div className="w-full lg:w-1/4 aspect-[16/9] lg:aspect-auto min-h-[160px] bg-brand-sand relative">
-                  <img
-                    src={evt.image}
-                    alt={evt.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute top-3 left-3 px-3 py-1 bg-brand-cream/90 backdrop-blur-sm rounded-full text-[10px] font-sans font-semibold text-brand-olive border border-brand-wood/25 shadow-sm">
-                    Taller / Sesión
-                  </div>
-                </div>
+                <div className="flex items-start gap-5 lg:gap-8">
+                  <span className="font-serif text-[11px] tracking-[0.15em] text-brand-wood/70 pt-1 shrink-0 w-6">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
 
-                {/* Event Metadata & Details */}
-                <div className="p-6 lg:p-8 flex-grow flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-                  
-                  {/* Left segment */}
-                  <div className="space-y-3 max-w-lg">
-                    <div className="flex items-center gap-4 text-xs font-sans text-brand-brown font-medium">
-                      <div className="flex items-center gap-1.5 bg-brand-sand/50 px-2 py-1 rounded-md">
-                        <Calendar className="w-3.5 h-3.5 text-brand-olive" />
-                        <span>{evt.date}</span>
-                      </div>
-                      <div className="flex items-center gap-1.5 bg-brand-sand/50 px-2 py-1 rounded-md">
-                        <Clock className="w-3.5 h-3.5 text-brand-olive" />
-                        <span>{evt.time}</span>
-                      </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-4 lg:gap-5">
+                      <motion.div
+                        animate={{ y: isActive ? [0, -3, 0] : 0 }}
+                        transition={{ duration: 3, repeat: isActive ? Infinity : 0, ease: "easeInOut" }}
+                        className="p-2.5 rounded-xl bg-brand-sand/70 text-brand-olive shrink-0"
+                      >
+                        <Icon className="w-5 h-5" />
+                      </motion.div>
+
+                      <h3 className="font-serif text-xl lg:text-2xl text-brand-charcoal font-light tracking-tight">
+                        <WordReveal text={exp.title} />
+                      </h3>
+
+                      <motion.div
+                        animate={{ rotate: isActive ? 180 : 0 }}
+                        transition={{ duration: 0.4, ease: "easeInOut" }}
+                        className="ml-auto shrink-0"
+                      >
+                        <ChevronDown className="w-4 h-4 text-brand-wood/50" />
+                      </motion.div>
                     </div>
 
-                    <h4 className="font-serif text-xl font-semibold text-brand-charcoal tracking-tight">
-                      {evt.title}
-                    </h4>
-
-                    <p className="font-sans text-xs text-brand-charcoal/65 leading-relaxed">
-                      {evt.description}
-                    </p>
-                  </div>
-
-                  {/* Right segment: Price & Registration trigger */}
-                  <div className="w-full md:w-auto shrink-0 flex flex-row md:flex-col justify-between items-center md:items-end gap-3 pt-4 md:pt-0 border-t md:border-t-0 border-brand-sand">
-                    
-                    <div className="text-left md:text-right">
-                      <span className="text-[10px] font-sans uppercase tracking-widest text-brand-charcoal/50 block">Precio por cupo</span>
-                      <span className="font-serif text-xl font-semibold text-brand-olive block mt-0.5">{evt.price}</span>
-                      <span className="text-[10px] bg-red-100 text-red-700 px-2 py-0.5 rounded-full font-sans font-medium mt-1 inline-block">
-                        Últimos {evt.slotsAvailable} lugares
-                      </span>
-                    </div>
-
-                    <a
-                      href="#contacto"
-                      className="flex items-center gap-1.5 px-5 py-2.5 bg-brand-olive hover:bg-brand-olive-dark text-brand-cream font-sans text-xs font-semibold rounded-xl tracking-wider uppercase transition-colors"
-                      id={`event-book-btn-${evt.id}`}
+                    <motion.div
+                      animate={{
+                        height: isActive ? "auto" : 0,
+                        opacity: isActive ? 1 : 0,
+                      }}
+                      initial={false}
+                      transition={{
+                        height: { duration: 0.7, ease: [0.25, 0.1, 0.25, 1] },
+                        opacity: { duration: 0.4 },
+                      }}
+                      className="overflow-hidden"
                     >
-                      <Ticket className="w-3.5 h-3.5" />
-                      <span>Inscribirme</span>
-                    </a>
+                      <div className="pt-6 lg:pt-8 space-y-6 lg:space-y-8">
+                        <motion.div
+                          initial="collapsed"
+                          animate={isActive ? "expanded" : "collapsed"}
+                          variants={lineVariants}
+                          transition={{ duration: 0.8, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
+                          className="h-px bg-gradient-to-r from-brand-olive/40 via-brand-olive/60 to-brand-olive/40 origin-left"
+                        />
 
+                        <motion.p
+                          initial="collapsed"
+                          animate={isActive ? "expanded" : "collapsed"}
+                          variants={contentVariants}
+                          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                          className="font-sans text-sm text-brand-charcoal/65 leading-relaxed max-w-xl"
+                        >
+                          {exp.description}
+                        </motion.p>
+
+                        <motion.div
+                          initial="collapsed"
+                          animate={isActive ? "expanded" : "collapsed"}
+                          variants={contentVariants}
+                          transition={{ duration: 0.6, delay: 0.35, ease: "easeOut" }}
+                          className="flex flex-wrap items-center gap-4 text-xs font-sans text-brand-brown"
+                        >
+                          <div className="flex items-center gap-1.5 bg-brand-sand/60 px-3 py-1.5 rounded-lg">
+                            <Calendar className="w-3.5 h-3.5 text-brand-olive" />
+                            <span>{event.date}</span>
+                          </div>
+                          <div className="flex items-center gap-1.5 bg-brand-sand/60 px-3 py-1.5 rounded-lg">
+                            <Clock className="w-3.5 h-3.5 text-brand-olive" />
+                            <span>{event.time}</span>
+                          </div>
+                        </motion.div>
+
+                        <motion.div
+                          initial="collapsed"
+                          animate={isActive ? "expanded" : "collapsed"}
+                          variants={contentVariants}
+                          transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
+                          className="flex flex-wrap items-center justify-between gap-4 pt-2"
+                        >
+                          <div>
+                            <span className="text-[10px] font-sans uppercase tracking-widest text-brand-charcoal/50 block">
+                              Precio por cupo
+                            </span>
+                            <span className="font-serif text-xl font-semibold text-brand-olive block mt-0.5">
+                              {event.price}
+                            </span>
+                          </div>
+
+                          <a
+                            href="#contacto"
+                            className="group relative inline-flex items-center gap-2 px-5 py-2.5 bg-brand-olive hover:bg-brand-olive-dark text-brand-cream text-xs font-sans font-semibold rounded-xl tracking-wider uppercase transition-all duration-500"
+                          >
+                            <span>Inscribirme</span>
+                            <span className="text-[10px] opacity-60 group-hover:opacity-100 transition-opacity">
+                              ({event.slotsAvailable} cupos)
+                            </span>
+                          </a>
+                        </motion.div>
+                      </div>
+                    </motion.div>
                   </div>
-
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            );
+          })}
         </div>
-
       </div>
     </section>
   );
