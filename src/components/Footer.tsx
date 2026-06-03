@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <footer 
       id="foot-info" 
-      className="bg-brand-charcoal text-brand-cream/80 py-16 border-t border-brand-wood/15 relative"
+      className="bg-brand-olive-dark text-brand-cream/80 py-16 border-t border-brand-cream/10 relative"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         

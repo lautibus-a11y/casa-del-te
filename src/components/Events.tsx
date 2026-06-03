@@ -24,7 +24,7 @@ export default function Events() {
   return (
     <section 
       id="eventos" 
-      className="py-24 bg-brand-sand/20 relative overflow-hidden bg-grain border-t border-brand-wood/10"
+      className="py-24 bg-brand-cream relative overflow-hidden bg-[url(/fondo-solo-zonas-begie.png)] bg-cover bg-center bg-no-repeat border-t border-brand-wood/10"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -40,26 +40,32 @@ export default function Events() {
             Sesiones exclusivas diseñadas con cupos estrictamente limitados para preservar la quietud, el silencio de la conversación y el confort sensorial.
           </p>
         </div>
+      </div>
 
-        {/* Experience pillars preview */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          {experiences.map((exp, idx) => (
-            <div 
-              key={exp.title}
-              className="p-6 rounded-2xl bg-brand-cream border border-brand-wood/20 shadow-sm flex items-start gap-4"
-              id={`experience-cell-${idx}`}
-            >
-              <div className="p-2.5 rounded-xl bg-brand-sand/60 text-brand-olive shrink-0">
-                {exp.icon}
+      {/* Experience pillars preview — full-bleed green */}
+      <div className="bg-brand-olive py-16 my-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {experiences.map((exp, idx) => (
+              <div 
+                key={exp.title}
+                className="p-6 rounded-2xl bg-brand-cream border border-brand-wood/20 shadow-sm flex items-start gap-4"
+                id={`experience-cell-${idx}`}
+              >
+                <div className="p-2.5 rounded-xl bg-brand-sand/60 text-brand-olive shrink-0">
+                  {exp.icon}
+                </div>
+                <div>
+                  <h4 className="font-serif text-sm font-semibold text-brand-charcoal">{exp.title}</h4>
+                  <p className="font-sans text-xs text-brand-charcoal/60 mt-1 leading-relaxed">{exp.desc}</p>
+                </div>
               </div>
-              <div>
-                <h4 className="font-serif text-sm font-semibold text-brand-charcoal">{exp.title}</h4>
-                <p className="font-sans text-xs text-brand-charcoal/60 mt-1 leading-relaxed">{exp.desc}</p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+      </div>
 
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Calendar visual layout */}
         <div className="space-y-6">
           <div className="flex items-center justify-between border-b border-brand-wood/30 pb-3">

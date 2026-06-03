@@ -50,22 +50,22 @@ export default function LocationAndContact() {
   return (
     <section 
       id="contacto" 
-      className="py-24 bg-brand-cream relative overflow-hidden bg-grain border-t border-brand-wood/25"
+      className="py-24 bg-brand-olive relative overflow-hidden bg-grain border-t border-brand-olive-dark/20"
     >
       {/* Background radial accent */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-sand/30 rounded-full filter blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-cream/10 rounded-full filter blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-xs uppercase tracking-[0.25em] text-brand-olive font-semibold block mb-2">
+          <span className="text-xs uppercase tracking-[0.25em] text-brand-cream/70 font-semibold block mb-2">
             Ubicación y Contacto
           </span>
-          <h2 className="font-serif text-3xl sm:text-4.5xl text-brand-charcoal font-light leading-none">
+          <h2 className="font-serif text-3xl sm:text-4.5xl text-brand-cream font-light leading-none">
             Planifique su visita al oasis
           </h2>
-          <p className="mt-4 font-sans text-brand-charcoal/60 text-sm max-w-xl mx-auto font-light leading-relaxed">
+          <p className="mt-4 font-sans text-brand-cream/60 text-sm max-w-xl mx-auto font-light leading-relaxed">
             Abierto de Jueves a Domingo para asegurar la frescura de nuestras hebras de té y la máxima atención artesanal.
           </p>
         </div>
@@ -210,22 +210,22 @@ export default function LocationAndContact() {
           <div className="lg:col-span-6 space-y-8">
             
             {/* Hour Card */}
-            <div className="p-7 bg-brand-sand/40 border border-brand-wood/30 rounded-3xl" id="hours-card">
-              <h4 className="font-serif text-lg font-medium text-brand-charcoal mb-4 flex items-center gap-2">
-                <Clock className="w-5 h-5 text-brand-olive" />
+            <div className="p-7 bg-brand-cream/10 backdrop-blur-md border border-brand-cream/15 rounded-3xl" id="hours-card">
+              <h4 className="font-serif text-lg font-medium text-brand-cream mb-4 flex items-center gap-2">
+                <Clock className="w-5 h-5 text-brand-cream/70" />
                 <span>Horarios Extendido de Temporada</span>
               </h4>
 
               <div className="grid grid-cols-2 gap-4">
-                <div className="border-r border-brand-wood/20 pr-4">
-                  <span className="text-[10px] uppercase font-sans tracking-wider text-brand-charcoal/50">Jueves a Viernes</span>
-                  <span className="font-serif text-lg font-semibold text-brand-olive block mt-1">15:00 hs a 21:00 hs</span>
-                  <span className="text-[11px] font-sans text-brand-charcoal/60">Tarde dorada & sonido ambiente</span>
+                <div className="border-r border-brand-cream/15 pr-4">
+                  <span className="text-[10px] uppercase font-sans tracking-wider text-brand-cream/50">Jueves a Viernes</span>
+                  <span className="font-serif text-lg font-semibold text-brand-cream block mt-1">15:00 hs a 21:00 hs</span>
+                  <span className="text-[11px] font-sans text-brand-cream/60">Tarde dorada & sonido ambiente</span>
                 </div>
                 <div className="pl-2">
-                  <span className="text-[10px] uppercase font-sans tracking-wider text-brand-charcoal/50">Sábados y Domingos</span>
-                  <span className="font-serif text-lg font-semibold text-brand-olive block mt-1">12:00 hs a 22:00 hs</span>
-                  <span className="text-[11px] font-sans text-brand-charcoal/60">Carta Brunch & noches de veladoras</span>
+                  <span className="text-[10px] uppercase font-sans tracking-wider text-brand-cream/50">Sábados y Domingos</span>
+                  <span className="font-serif text-lg font-semibold text-brand-cream block mt-1">12:00 hs a 22:00 hs</span>
+                  <span className="text-[11px] font-sans text-brand-cream/60">Carta Brunch & noches de veladoras</span>
                 </div>
               </div>
             </div>
@@ -282,9 +282,9 @@ export default function LocationAndContact() {
         </div>
 
         {/* Small Love Footer Note */}
-        <div className="mt-16 text-center text-brand-charcoal/40 text-xs flex items-center justify-center gap-1.5">
+        <div className="mt-16 text-center text-brand-cream/50 text-xs flex items-center justify-center gap-1.5">
           <span>Komorebi es un espacio libre de ruidos de motor</span>
-          <Heart className="w-3 h-3 text-brand-olive fill-brand-olive" />
+          <Heart className="w-3 h-3 text-brand-cream/60 fill-brand-cream/60" />
           <span>Fomentamos la oxigenación natural.</span>
         </div>
 

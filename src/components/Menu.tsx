@@ -41,7 +41,7 @@ export default function Menu() {
   return (
     <section
       id="menu"
-      className="py-24 bg-brand-cream relative overflow-hidden bg-grain"
+      className="py-24 bg-brand-sand/30 relative overflow-hidden bg-[url(/fondo-solo-zonas-begie.png)] bg-cover bg-center bg-no-repeat"
     >
       <div className="absolute top-1/3 right-10 w-72 h-72 bg-brand-wood/10 rounded-full filter blur-3xl pointer-events-none" />
 

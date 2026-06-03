@@ -24,7 +24,7 @@ export default function About() {
   return (
     <section 
       id="nosotros" 
-      className="py-24 bg-brand-cream relative overflow-hidden bg-grain"
+      className="py-24 bg-brand-cream relative overflow-hidden bg-[url(/fondo-solo-zonas-begie.png)] bg-cover bg-center bg-no-repeat"
     >
       {/* Decorative nature blurred circle */}
       <div className="absolute top-1/4 -left-36 w-96 h-96 bg-brand-olive/5 rounded-full filter blur-3xl pointer-events-none" />
@@ -89,43 +89,46 @@ export default function About() {
 
         </div>
 
-        {/* Story details layout: Cards */}
-        <div className="mt-20">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-brand-wood text-sm font-semibold tracking-widest font-sans uppercase">Los tres pilares</span>
-            <h3 className="font-serif text-2xl text-brand-charcoal font-light mt-1">Cómo honramos su viaje de tranquilidad</h3>
-          </div>
+      </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {cards.map((card, idx) => (
-              <div
-                key={card.title}
-                className="p-8 rounded-2xl bg-brand-cream border border-brand-wood/25 shadow-sm hover:shadow-md hover:border-brand-olive/40 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center"
-                id={`pillar-card-${idx}`}
-              >
-                <div className="p-3.5 rounded-full bg-brand-sand/65 mb-4 border border-brand-wood/20">
-                  {card.icon}
-                </div>
-                <h4 className="font-serif text-lg font-semibold text-brand-charcoal mb-2">
-                  {card.title}
-                </h4>
-                <motion.div
-                  initial={{ maxHeight: 0, opacity: 0 }}
-                  whileInView={{ maxHeight: 200, opacity: 1 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-                  className="overflow-hidden"
+        {/* Story details layout: Cards — full-bleed green background */}
+        <div className="mt-20 bg-brand-olive py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <span className="text-brand-cream/70 text-sm font-semibold tracking-widest font-sans uppercase">Los tres pilares</span>
+              <h3 className="font-serif text-2xl text-brand-cream font-light mt-1">Cómo honramos su viaje de tranquilidad</h3>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {cards.map((card, idx) => (
+                <div
+                  key={card.title}
+                  className="p-8 rounded-2xl bg-brand-cream border border-brand-wood/25 shadow-sm hover:shadow-md hover:border-brand-olive/40 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center"
+                  id={`pillar-card-${idx}`}
                 >
-                  <p className="font-sans text-xs text-brand-charcoal/70 leading-relaxed">
-                    {card.description}
-                  </p>
-                </motion.div>
-              </div>
-            ))}
+                  <div className="p-3.5 rounded-full bg-brand-sand/65 mb-4 border border-brand-wood/20">
+                    {card.icon}
+                  </div>
+                  <h4 className="font-serif text-lg font-semibold text-brand-charcoal mb-2">
+                    {card.title}
+                  </h4>
+                  <motion.div
+                    initial={{ maxHeight: 0, opacity: 0 }}
+                    whileInView={{ maxHeight: 200, opacity: 1 }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+                    className="overflow-hidden"
+                  >
+                    <p className="font-sans text-xs text-brand-charcoal/70 leading-relaxed">
+                      {card.description}
+                    </p>
+                  </motion.div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
-      </div>
     </section>
   );
 }

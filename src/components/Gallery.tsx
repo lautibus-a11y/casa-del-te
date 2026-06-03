@@ -26,7 +26,7 @@ export default function Gallery() {
   return (
     <section
       id="galeria"
-      className="py-24 bg-brand-sand/30 bg-grain relative"
+      className="py-24 bg-brand-cream bg-[url(/fondo-solo-zonas-begie.png)] bg-cover bg-center bg-no-repeat relative"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
