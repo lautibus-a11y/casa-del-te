@@ -98,12 +98,8 @@ export default function About() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {cards.map((card, idx) => (
-              <motion.div
+              <div
                 key={card.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: idx * 0.15 }}
                 className="p-8 rounded-2xl bg-brand-cream border border-brand-wood/25 shadow-sm hover:shadow-md hover:border-brand-olive/40 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center"
                 id={`pillar-card-${idx}`}
               >
@@ -113,10 +109,16 @@ export default function About() {
                 <h4 className="font-serif text-lg font-semibold text-brand-charcoal mb-2">
                   {card.title}
                 </h4>
-                <p className="font-sans text-xs text-brand-charcoal/70 leading-relaxed">
+                <motion.p
+                  initial={{ opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  className="font-sans text-xs text-brand-charcoal/70 leading-relaxed"
+                >
                   {card.description}
-                </p>
-              </motion.div>
+                </motion.p>
+              </div>
             ))}
           </div>
         </div>

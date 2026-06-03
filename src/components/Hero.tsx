@@ -82,7 +82,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="mt-6 font-sans text-brand-sand/80 text-base sm:text-lg md:text-xl max-w-2xl font-light leading-relaxed"
+          className="mt-6 font-sans text-brand-sand/80 text-base sm:text-lg md:text-xl max-w-2xl font-light leading-relaxed hidden sm:block"
           id="hero-subtitle"
         >
           En Komorebi creamos rituales memorables. Un concepto al aire libre inspirado en la quietud de los jardines japoneses y el confort nórdico.
